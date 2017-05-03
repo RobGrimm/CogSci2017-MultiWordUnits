@@ -7,7 +7,7 @@ Code for obtaining results described in the following paper:
 This project is written in Python (version 3.4.3) and R (version 3.3.3), both on Ubuntu 14.04. The biggest part of the code is written in Python, and a small part for statistical analysis is written in R. 
 The Python component requires the following packages (the version we used is given in parentheses):
 > numpy (1.12.1)  
-nltk (3.2.2) 
+nltk (3.2.2)   
 scipy (0.19.0)  
 
 Since our pipeline uses the WordNet lemmatizer included wit the NLTK, you need to download a copy of WordNet via nltk.download()
