@@ -10,7 +10,7 @@ from Covariates.get_covariates import get_concretness_values, get_nsyllables, ge
 file_dir = os.path.dirname(os.path.realpath(__file__))
 
 
-def get_number_mwus_per_word(mwu_counter, min_freq=10):
+def get_number_mwus_per_word(mwu_counter, min_freq=2):
     """
     :param mwu_counter: dictionary mapping MWUs to their frequency counts
     :return: dictionary mapping words to the number of MWUs within which they occur
@@ -28,7 +28,7 @@ def get_number_mwus_per_word(mwu_counter, min_freq=10):
     return ret
 
 
-def get_number_contextws_by_word(mwu_counter, min_freq=10):
+def get_number_contextws_by_word(mwu_counter, min_freq=2):
     """
     :param mwu_counter: dictionary mapping MWUs to their frequency counts
     :return: dictionary mapping each target word to the number of distinct context words that appear in the
