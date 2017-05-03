@@ -8,7 +8,7 @@ def load_mwus(corpus_name):
 
     mwu_counter = dict()
 
-    with open(os.path.join(file_dir, 'MWUs', '%s.txt' % corpus_name), 'r') as f:
+    with open(os.path.join(file_dir, '%s.txt' % corpus_name), 'r') as f:
         for line in f:
             line = line.split()
             mwu = tuple(line[:-1])

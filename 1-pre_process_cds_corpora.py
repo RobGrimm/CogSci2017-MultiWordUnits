@@ -26,10 +26,10 @@ json.dump(corpus_dict, open(os.path.join(file_dir, 'pre_processed_corpora', 'BE.
 
 american_corpora = ['Bates', 'Bernstein', 'Bliss', 'Bloom70', 'Bloom73', 'Bohannon', 'Braunwald', 'Brent', 'Brown',
                     'Carterette', 'Clark', 'Cornell', 'Demetras1', 'Demetras2', 'ErvinTripp', 'Evans', 'Feldman',
-                    'Feldman 2', 'Garvey', 'Gathercole',  'Gleason', 'HSLLD', 'Hall', 'Higginson', 'Kuczaj',
-                    'MacWhinney', 'McCune', 'McMillan',  'Morisset', 'Nelson', 'NewEngland', 'Peters', 'Post',
-                    'Providence', 'Rollins', 'Sachs', 'Snow', 'Soderstrom', 'Sprott', 'Suppes', 'Tardif', 'Valian',
-                    'VanHouten', 'VanKleeck', 'VanKleeck 2', 'Warren', 'Weist']
+                    'Garvey', 'Gathercole',  'Gleason', 'HSLLD', 'Hall', 'Higginson', 'Kuczaj', 'MacWhinney', 'McCune',
+                    'McMillan',  'Morisset', 'Nelson', 'NewEngland', 'Peters', 'Post', 'Providence', 'Rollins', 'Sachs',
+                    'Snow', 'Soderstrom', 'Sprott', 'Suppes', 'Tardif', 'Valian', 'VanHouten', 'VanKleeck', 'Warren',
+                    'Weist']
 
 # process CHILDES .xml files
 corpus_dict = process_childes_corpora(corpora=american_corpora, corpora_dir='corpora/NA/', MLU=True)

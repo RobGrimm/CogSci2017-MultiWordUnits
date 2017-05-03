@@ -51,7 +51,7 @@ def print_example_mwus(mwu_type, corpus_name, nr_examples, target_word):
 
 
 if __name__ == '__main__':
-    print_example_mwus(mwu_type='PBS', corpus_name='NA', nr_examples=5, target_word='girl')
-    # print_example_mwus(mwu_type='CBL', corpus_name='NA', nr_examples=5, target_word='girl')
-    # print_example_mwus(mwu_type='PBS', corpus_name='NA', nr_examples=5, target_word='sit')
-    # print_example_mwus(mwu_type='CBL', corpus_name='NA', nr_examples=5, target_word='sit')
+    #print_example_mwus(mwu_type='PBS', corpus_name='NA', nr_examples=5, target_word='girl')
+    #print_example_mwus(mwu_type='CBL', corpus_name='NA', nr_examples=5, target_word='girl')
+    #print_example_mwus(mwu_type='PBS', corpus_name='NA', nr_examples=5, target_word='sit')
+    print_example_mwus(mwu_type='CBL', corpus_name='NA', nr_examples=5, target_word='sit')

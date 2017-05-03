@@ -16,5 +16,5 @@ for corpus_name in ['BE', 'NA']:
 
     cbl = ChunkBasedLearner(random_btp=False)
     mwu_counter = cbl.get_mwus(utterances)
-    with open(os.path.join(file_dir, 'ChunkBasedLearner', 'MWUs', '%s.pickle' % corpus_name), 'wb') as f:
+    with open(os.path.join(file_dir, 'ChunkBasedLearner', '%s.pickle' % corpus_name), 'wb') as f:
         pickle.dump(mwu_counter, f, protocol=pickle.HIGHEST_PROTOCOL)

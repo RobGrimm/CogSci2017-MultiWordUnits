@@ -10,16 +10,15 @@ from Covariates.get_covariates import get_concretness_values, get_nsyllables, ge
 file_dir = os.path.dirname(os.path.realpath(__file__))
 
 
-def get_number_mwus_per_word(mwu_counter, min_mwu_freq):
+def get_number_mwus_per_word(mwu_counter, min_freq=10):
     """
     :param mwu_counter: dictionary mapping MWUs to their frequency counts
-    :param min_mwu_freq: minimum frequency for MWUs to be considered
     :return: dictionary mapping words to the number of MWUs within which they occur
     """
     ret = dict()
     for mwu, freq in mwu_counter.items():
 
-        if freq < min_mwu_freq:
+        if freq < min_freq:
             continue
 
         for w in mwu:
@@ -29,17 +28,16 @@ def get_number_mwus_per_word(mwu_counter, min_mwu_freq):
     return ret
 
 
-def get_number_contextws_by_word(mwu_counter, min_mwu_freq):
+def get_number_contextws_by_word(mwu_counter, min_freq=10):
     """
     :param mwu_counter: dictionary mapping MWUs to their frequency counts
-    :param min_mwu_freq: minimum frequency for MWUs to be considered
     :return: dictionary mapping each target word to the number of distinct context words that appear in the
              MWUs which contain the target words
     """
     ret = dict()
     for mwu, freq in mwu_counter.items():
 
-        if freq < min_mwu_freq:
+        if freq < min_freq:
             continue
 
         for w in mwu:
@@ -80,21 +78,20 @@ for corpus_name in ['BE', 'NA']:
 
     # get number of MWUs for each tareget word (for the Prediction Based Segmenter)
     pbs_mwu_counter = load_pbs_mwus(corpus_name)
-    nr_pbs_mwus_by_word = get_number_mwus_per_word(pbs_mwu_counter, min_mwu_freq=2)
+    nr_pbs_mwus_by_word = get_number_mwus_per_word(pbs_mwu_counter)
     pbs_mwus = [nr_pbs_mwus_by_word[w] if w in nr_pbs_mwus_by_word else 0 for w in target_words]
 
     # get number of context words contained in MWUs for each target word
-    pbs_contextws_by_word = get_number_contextws_by_word(pbs_mwu_counter, min_mwu_freq=2)
+    pbs_contextws_by_word = get_number_contextws_by_word(pbs_mwu_counter)
     pbs_ctxtws = [pbs_contextws_by_word[w] if w in pbs_contextws_by_word else 0 for w in target_words]
 
     # perform same steps for the Chunk Based Learner
     cbl_mwu_counter = load_cbl_mwus(corpus_name)
-    nr_cbl_mwus_by_word = get_number_mwus_per_word(cbl_mwu_counter, min_mwu_freq=2)
+    nr_cbl_mwus_by_word = get_number_mwus_per_word(cbl_mwu_counter)
     cbl_mwus = [nr_cbl_mwus_by_word[w] if w in nr_cbl_mwus_by_word else 0 for w in target_words]
 
-    cbl_contextws_by_word = get_number_contextws_by_word(cbl_mwu_counter, min_mwu_freq=2)
+    cbl_contextws_by_word = get_number_contextws_by_word(cbl_mwu_counter)
     cbl_ctxtws = [cbl_contextws_by_word[w] if w in cbl_contextws_by_word else 0 for w in target_words]
-
 
     # write results to CSV
     with open(os.path.join(file_dir, '%s.csv' % corpus_name), 'w') as file_:

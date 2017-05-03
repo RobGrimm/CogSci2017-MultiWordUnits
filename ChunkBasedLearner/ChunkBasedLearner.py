@@ -42,9 +42,9 @@ class ChunkBasedLearner(object):
                 btp, mean_btp = self.get_btps(w, left_w)
 
                 # add current word ('w') to MWU if:
-                #   a) the BTP is larger than the mean BTP plus the reciprocal of the frequeqncy of 'w' OR
+                #   a) the BTP is larger than the mean BTP OR
                 #   b) 'w' immediately follows 'left_w' in one of MWUs already in memory
-                if btp > mean_btp + 1 / self.freqs[w] or w in self.follows[left_w]:
+                if btp > mean_btp or w in self.follows[left_w]:
                     mwu.append(w)
                 # otherwise, store current MWU and create a new MWU with 'w' as its only member
                 else:

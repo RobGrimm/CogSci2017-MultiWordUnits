@@ -43,7 +43,7 @@ for corpus_name in ['BE', 'NA']:
     options.corpus = corpus_path
 
     # path to output file with MWUs and frequency counts
-    options.output = os.path.join(file_dir, 'PredictionBasedSegmenter', 'MWUs', '%s.txt' % corpus_name)
+    options.output = os.path.join(file_dir, 'PredictionBasedSegmenter', '%s.txt' % corpus_name)
 
     run_pbs(options)
 
