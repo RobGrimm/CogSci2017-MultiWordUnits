@@ -7,8 +7,10 @@ Code for obtaining results described in the following paper:
 This project is written in Python (version 3.4.3) and R (version 3.3.3), both on Ubuntu 14.04. The biggest part of the code is written in Python, and a small part for statistical analysis is written in R. 
 The Python component requires the following packages (the version we used is given in parentheses):
 > numpy (1.12.1)  
-nltk (3.2.2)  
+nltk (3.2.2) 
 scipy (0.19.0)  
+
+Since our pipeline uses the WordNet lemmatizer included wit the NLTK, you need to download a copy of WordNet via nltk.download()
 
 ## Get the Corpus Data
 
@@ -42,12 +44,12 @@ Collect age of first production (AoFP) values for words used by the children in 
 Run the Chunk-Based Learner on the on the CHILDES corpora and save extracted multi-word units to hard drive.
 
 *4-run_chunk_based_learner.py*        
-Run the Prediction Based Segmenter on the on the CHILDES corpora and save extracted multi-word units to hard drive.  
+Run the Prediction Based Segmenter on the on the CHILDES corpora and save extracted multi-word units to hard drive. This step requires around 20 GB of RAM.  
 Code for the Prediction Based Segmenter was written by Julian Brooke and is taken from his homepage at the University of Toronto: http://www.cs.toronto.edu/~jbrooke/ngram_decomp_seg.py  
-We converted the program to to Python3 via [2-to-3](https://docs.python.org/2/library/2to3.html) and made minor changes to integrate it into our pipeline.  
+We converted the program to to Python3 via [2-to-3](https://docs.python.org/2/library/2to3.html) and made minor changes to integrate it into our pipeline. 
 
 *5-results_to_csv.py*  
-Compute statistics and write results to CSV file for statistical analysis in R.
+Compute statistics and write results to CSV file for statistical analysis in R. If run for the first time, this script creates a dictionary which maps words to their nearest phonological neighbors, which will take a few hours to complete.
 
 *6-statistical_analysis.R*  
 Perform statistical analysis in R.
