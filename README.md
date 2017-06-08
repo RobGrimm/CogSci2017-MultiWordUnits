@@ -41,7 +41,7 @@ Pre-process the CHILDES corpora.
 Collect age of first production (AoFP) values for words used by the children in the CHILDES corpora.
 
 *3-run_chunk_based_learner.py*        
-Run the Chunk-Based Learner on the on the CHILDES corpora and save extracted multi-word units to hard drive.
+Run the Chunk-Based Learner on the CHILDES corpora and save extracted multi-word units to hard drive.
 
 *4-run_chunk_based_learner.py*        
 Run the Prediction Based Segmenter on the on the CHILDES corpora and save extracted multi-word units to hard drive. This step requires around 20 GB of RAM.  
